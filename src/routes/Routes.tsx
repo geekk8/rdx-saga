@@ -1,5 +1,6 @@
 // import AlbumPage from 'domain/album'
 import AlbumPage from 'domain/album/AlbumPage'
+import T101Page from 'domain/t101'
 import Layout from 'layout/Layout'
 import { Suspense, lazy } from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
@@ -20,6 +21,7 @@ const Routes = () => {
             <Route exact path="/photo" component={PhotoPage} />
             <Route exact path="/album" component={AlbumPage} />
             <Route exact path="/phonePhoto" component={PhonePhoto} />
+            <Route exact path="/t101" component={T101Page} />
             <Route exact path="/NotFound" component={NotFound} />
             <Redirect to={'/NotFound'} />
           </Switch>
