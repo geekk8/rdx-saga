@@ -1,11 +1,17 @@
 import { albumsActions, IAlbumListState } from 'features/ablumsSlice/albumSlice'
+import { setOpenModal } from 'features/modalSlice/modalSlice'
+import withAuth from 'hoc/withAuth'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'store/configStore'
 
-const AlbumPage = () => {
+interface IAlbumPageProp {
+  admin?: string
+}
+const AlbumPage = ({ admin }: IAlbumPageProp) => {
   const [show, setShow] = useState<boolean>(false)
   const dispatch = useDispatch()
+  const { showModal } = useSelector((state: RootState) => state.modal)
   const { albumsList, selectAlbum } = useSelector(
     (state: RootState) => state.album,
   )
@@ -18,6 +24,10 @@ const AlbumPage = () => {
   const handleSelect = (id: number) => {
     setShow(true)
     dispatch({ type: albumsActions.requestAlbumSelect, payload: id })
+  }
+
+  const handleOpenModal = () => {
+    dispatch(setOpenModal())
   }
 
   return (
@@ -41,8 +51,11 @@ const AlbumPage = () => {
             })}
         </div>
       )}
+      <button onClick={handleOpenModal}>open modal</button>
+      <h3>{admin}</h3>
+      {/* {showModal && <ModalPage />} */}
     </div>
   )
 }
 
-export default AlbumPage
+export default withAuth(true)(AlbumPage)

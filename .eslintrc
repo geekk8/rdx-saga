@@ -8,7 +8,15 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    // "no-console": 1,
-    // "no-loops/no-loops": 2
-  }
+    "@typescript-eslint/explicit-function-return-type": "off"
+  },
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": ["off"]
+      }
+    }
+  ]
 }

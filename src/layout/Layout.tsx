@@ -1,13 +1,21 @@
+import ModalPage from 'components/modal/ModalPage'
 import React from 'react'
-import styled from 'styled-components'
 import * as S from './layout.styled'
+import { useSelector } from 'react-redux'
+import { RootState } from 'store/configStore'
 
 interface ILayoutProps {
   children?: React.ReactNode
 }
 
 const Layout = ({ children }: ILayoutProps) => {
-  return <S.LayoutWrap>{children}</S.LayoutWrap>
+  const { showModal } = useSelector((state: RootState) => state.modal)
+  return (
+    <S.LayoutWrap>
+      {children}
+      {showModal && <ModalPage />}
+    </S.LayoutWrap>
+  )
 }
 
 export default Layout
