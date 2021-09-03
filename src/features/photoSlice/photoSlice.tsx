@@ -11,13 +11,13 @@ export interface IPhotoState {
 
 export interface IPhotoInitialState {
   photoList: IPhotoState[]
-  error: AxiosError | Error | string
+  error: AxiosError | Error | null
   loading: boolean
 }
 
 const initialState = {
   photoList: [],
-  error: '',
+  error: null,
   loading: false,
 } as IPhotoInitialState
 
@@ -39,10 +39,7 @@ const photoSlice = createSlice({
       state.loading = false
       state.photoList = action.payload
     },
-    requestPhotoListFailure: (
-      state: IPhotoInitialState,
-      action: PayloadAction<AxiosError>,
-    ) => {
+    requestPhotoListFailure: (state: IPhotoInitialState, action: any) => {
       state.loading = false
       state.error = action.payload
     },

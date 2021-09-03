@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import axios, { AxiosError } from 'axios'
+import API from 'api'
+import { AxiosError } from 'axios'
 import { createAsyncSaga } from 'utils/sagaUitl'
 
 export interface IAlbumListState {
@@ -11,7 +12,7 @@ export interface IAlbumListState {
 export interface IAlbumsState {
   albumsList: IAlbumListState[]
   error: AxiosError | Error | null
-  selectAlbum: IAlbumListState | null | any
+  selectAlbum: IAlbumListState | null
 }
 
 const initialState: IAlbumsState = {
@@ -28,7 +29,7 @@ export const albumsActions = {
 }
 
 const fetchAlbums = async () => {
-  const albums: IAlbumListState[] = await axios({
+  const albums: IAlbumListState[] = await API({
     method: 'get',
     url: `https://jsonplaceholder.typicode.com/albums`,
   }).then((res) => res.data)
@@ -36,7 +37,7 @@ const fetchAlbums = async () => {
 }
 
 const selectAlbumData = async (id: number) => {
-  const selectDatas: IAlbumListState = await axios({
+  const selectDatas: IAlbumListState | any = await API({
     method: 'get',
     url: `https://jsonplaceholder.typicode.com/albums/${id}`,
   }).then((res) => res.data)

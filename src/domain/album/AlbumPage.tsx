@@ -11,8 +11,12 @@ interface IAlbumPageProp {
 const AlbumPage = ({ admin }: IAlbumPageProp) => {
   const [show, setShow] = useState<boolean>(false)
   const dispatch = useDispatch()
+<<<<<<< HEAD
   const { showModal } = useSelector((state: RootState) => state.modal)
   const { albumsList, selectAlbum } = useSelector(
+=======
+  const { albumsList, selectAlbum }: any = useSelector(
+>>>>>>> 7729129d4dc480d706fede1f8f8c1697d9cc7767
     (state: RootState) => state.album,
   )
 
