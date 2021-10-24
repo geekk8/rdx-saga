@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const name = '@count'
+const name = '@count/'
 
 const initialState = {
   number: 0,
