@@ -11,6 +11,7 @@ const MainPage = lazy(() => import('domain/main'))
 const NotFound = lazy(() => import('domain/notFound/NotFound'))
 const PhonePhoto = lazy(() => import('domain/phonePhoto'))
 const CountPage = lazy(() => import('domain/count'))
+const GitPage = lazy(() => import('domain/git'))
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
             <Route exact path="/phonePhoto" component={PhonePhoto} />
             <Route exact path="/t101" component={T101Page} />
             <Route exact path="/count" component={CountPage} />
+            <Route exact path="/git" component={GitPage} />
             <Route exact path="/NotFound" component={NotFound} />
             <Redirect to={'/NotFound'} />
           </Switch>
