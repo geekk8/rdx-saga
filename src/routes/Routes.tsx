@@ -14,6 +14,7 @@ const CountPage = lazy(() => import('domain/count'))
 const GitPage = lazy(() => import('domain/git'))
 
 //rebase test/rebase1
+//console test/rebase2
 
 const Routes = () => {
   return (
