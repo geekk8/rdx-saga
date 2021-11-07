@@ -13,6 +13,8 @@ const PhonePhoto = lazy(() => import('domain/phonePhoto'))
 const CountPage = lazy(() => import('domain/count'))
 const GitPage = lazy(() => import('domain/git'))
 
+//rebase test/rebase1
+
 const Routes = () => {
   return (
     <BrowserRouter>
